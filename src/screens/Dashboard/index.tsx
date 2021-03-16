@@ -18,18 +18,25 @@ const Dashboard: React.FC = () => {
   const handleCauculateMglt = async (
     event: FormEvent<HTMLFormElement>,
   ): Promise<void> => {
-    event.preventDefault();
-    if (!mglt) {
-      setInputError('MGLT value is required');
-      return;
+    try {
+      
+      event.preventDefault();
+      if (!mglt) {
+        setInputError('MGLT value is required');
+        return;
+      }
+      setInputError('')
+      setLoading(true)
+      const starshipsByMglt: any = await getStartshipsByMgltRange(mglt);
+      setStarships(starshipsByMglt)
+      console.log('45 - ', starshipsByMglt);
+      
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+    } finally {
+      setLoading(false)
     }
-    setInputError('')
-    setLoading(true)
-    const starshipsByMglt: any = await getStartshipsByMgltRange(mglt);
-    setStarships(starshipsByMglt)
-    console.log('45 - ', starshipsByMglt);
-
-    setLoading(false)
   };
 
   return (
