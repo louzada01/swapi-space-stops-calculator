@@ -5,10 +5,15 @@ export const swapiApi = axios.create({
   baseURL: 'https://swapi.dev/api',
 });
 
-export const getAllStartships = async ():Promise<IStarships[]> => {
-  const {data: starships} = await swapiApi.get('/starships');
-
-  return starships.results;
+export const getAllStartships = async ():Promise<IStarships[] | any> => {
+  try {
+    
+    const {data: starships} = await swapiApi.get('/starships');
+    
+    return starships.results;
+  } catch (error) {
+    alert('Ocorreu um error durante a busca, tente novamente.')
+  }
 } 
 
 export const getStartshipsByMgltRange = async (mglt: number ) =>{

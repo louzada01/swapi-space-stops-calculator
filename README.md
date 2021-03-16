@@ -2,7 +2,7 @@
 
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9f90b22e-53f6-491e-9248-6910e22fbb6e/deploy-status)](https://app.netlify.com/sites/swapi-space-stops-calculator/deploys)
-### 🎉[Demo App](https://swapi-space-stops-calculator.netlify.app)
+### 🎉[Demo App](http://swapi-space-stops-calculator.netlify.app)
 
 ## 💫 Run this project steps
 
